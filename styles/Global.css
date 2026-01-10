@@ -1,0 +1,99 @@
+/* src/App.css */
+
+:root {
+  --neon-blue: #00f2ff;
+  --neon-green: #39ff14;
+  --alert-red: #ff4d4d;
+  /* Variable für Transparenz-Logik */
+  --bg-dark: transparent; 
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  /* Schwarz nur als Basis, falls das Bild lädt */
+  background-color: #000 !important;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.aegis-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* FIX: Radial-Gradient entfernt, damit die Stadtgrafik sichtbar bleibt */
+  background: transparent !important;
+  padding: 20px;
+  z-index: 1;
+}
+
+/* --- HINTERGRUND-SYSTEM (Zentral für alle Module) --- */
+.aegis-container::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; 
+  width: 100vw; 
+  height: 100vh;
+  z-index: -1; 
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+  transition: background-image 0.5s ease-in-out;
+  filter: brightness(0.5) contrast(1.1);
+}
+
+/* Zuweisung für Allianz/Wirtschaft-Hintergrund */
+.bg-alliance-mode::before { 
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url('/assets/alliance_bg.png') !important; 
+}
+
+/* --- DAS INTERFACE-PANEL ALS SCHWEBENDES FENSTER --- */
+/* Das ist der entscheidende Teil für das EconomyModule */
+.interface-panel {
+  position: relative;
+  z-index: 10;
+  width: 92%;          /* Schafft den seitlichen Rahmen zur Stadt */
+  max-width: 1300px; 
+  max-height: 88vh;    /* Schafft den Rahmen oben und unten */
+  overflow-y: auto;
+  background: transparent !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* UI Utility Classes (Animationen erhalten) */
+.neon-text { color: var(--neon-blue); }
+.small-text { font-size: 0.7rem; }
+.fade-in { animation: fadeIn 0.8s ease-in-out forwards; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+  0% { text-shadow: 0 0 10px var(--neon-blue); }
+  50% { text-shadow: 0 0 25px var(--neon-blue), 0 0 5px #fff; }
+  100% { text-shadow: 0 0 10px var(--neon-blue); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Scrollbar (Zugepasst auf Glas-Design) */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.1); }
+::-webkit-scrollbar-thumb { background: rgba(0, 242, 255, 0.2); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--neon-blue); }

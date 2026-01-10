@@ -1,0 +1,136 @@
+/* src/styles/EconomyModule.css */
+
+.economy-module {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    padding: 10px;
+    /* Zwingend transparent, damit die App-Hintergründe (economy_bg) durchkommen */
+    background: transparent !important; 
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* --- GLAS-EFFEKT FÜR DIE CONTAINER --- */
+/* Diese Regel sorgt dafür, dass die Boxen gläsern sind, ohne schwarz zu blockieren */
+.table-wrapper.transparent-container, 
+.total-footer.transparent-container {
+    background: rgba(0, 8, 15, 0.4) !important; 
+    backdrop-filter: blur(12px) saturate(160%) !important; 
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
+    border: 1px solid rgba(0, 243, 255, 0.25) !important; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* --- TABELLEN STYLING --- */
+.economy-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: transparent !important;
+}
+
+.economy-table th {
+    background: rgba(0, 242, 255, 0.08) !important; 
+    color: #00f3ff;
+    text-align: center;
+    font-size: 0.85rem;
+    padding: 12px 8px;
+    border-bottom: 2px solid rgba(0, 243, 255, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.economy-table td {
+    padding: 10px 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    background: transparent !important;
+}
+
+/* --- INPUT FELDER --- */
+.table-in {
+    background: rgba(0, 0, 0, 0.6) !important;
+    border: 1px solid rgba(0, 243, 255, 0.2) !important;
+    color: #fff;
+    padding: 6px 8px;
+    border-radius: 3px;
+    width: 65px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.table-in:focus {
+    outline: none;
+    border-color: #00f3ff !important;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
+}
+
+.table-in.small-in {
+    width: 35px;
+    margin: 0 2px;
+}
+
+/* --- STATISTIK BEREICH UNTEN (Gitter) --- */
+.total-footer.transparent-container {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px;
+}
+
+.stat-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3); 
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.stat-box label {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-value {
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: #00f3ff;
+    text-shadow: 0 0 12px rgba(0, 243, 255, 0.6);
+}
+
+/* --- BUTTONS --- */
+.add-row-btn, .del-row-btn {
+    background: rgba(0, 242, 255, 0.1) !important;
+    border: 1px solid rgba(0, 242, 255, 0.4) !important;
+    color: #00f3ff;
+    cursor: pointer;
+    border-radius: 3px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    transition: all 0.2s ease;
+}
+
+.add-row-btn:hover {
+    background: rgba(0, 242, 255, 0.3) !important;
+    box-shadow: 0 0 12px rgba(0, 243, 255, 0.5);
+}
+
+.del-row-btn { 
+    color: #ff4d4d !important; 
+    border-color: rgba(255, 77, 77, 0.4) !important; 
+}
+
+.del-row-btn:hover {
+    background: rgba(255, 77, 77, 0.3) !important;
+    box-shadow: 0 0 12px rgba(255, 77, 77, 0.5);
+}

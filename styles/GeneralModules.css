@@ -1,0 +1,62 @@
+/* --- UNI TABS (Jetzt im Glass-Look) --- */
+.uni-selector {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 242, 255, 0.2);
+  flex-wrap: wrap;
+}
+
+.uni-selector button {
+  flex: 1;
+  min-width: 60px;
+  /* GEÄNDERT: Von #111 auf Glas-Effekt */
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: #888;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.uni-selector button.active {
+  background: var(--neon-blue);
+  color: #000;
+  font-weight: bold;
+  box-shadow: 0 0 15px var(--neon-blue);
+}
+
+/* --- DSGVO OVERLAY (Passend zum Intro-Look) --- */
+.dsgvo-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  /* GEÄNDERT: Weniger deckend, damit Hintergrund leicht schimmert */
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20000;
+  backdrop-filter: blur(10px);
+}
+
+.dsgvo-content {
+  /* GEÄNDERT: Von #111 auf Glas */
+  background: rgba(0, 15, 25, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--neon-blue);
+  padding: 30px;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+}
+
+.dsgvo-trigger {
+  background: none;
+  border: none;
+  color: #555; /* Etwas heller für Lesbarkeit auf Glas */
+  font-size: 0.6rem;
+  margin-top: 20px;
+  cursor: pointer;
+}

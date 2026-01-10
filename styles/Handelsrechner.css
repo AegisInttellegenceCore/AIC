@@ -1,0 +1,115 @@
+/* src/styles/Handelsrechner.css */
+
+.handelsrechner-container {
+    display: flex;
+    flex-wrap: wrap; /* WICHTIG: Erlaubt Umbruch auf Tablets */
+    width: 100%;
+    /* Keine starre Höhe mehr, passt sich dem Inhalt an */
+    height: 100%; 
+    min-height: 500px; 
+    gap: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* --- GEMEINSAME STYLES FÜR PANELS --- */
+.trade-panel, .pushing-panel {
+    /* Flex-Basis 400px: Versucht mind. 400px breit zu sein, wächst aber (grow: 1) */
+    flex: 1 1 400px;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    
+    padding: 20px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    
+    /* Scrollbar nur wenn wirklich nötig */
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+/* --- LINKE SEITE (Blau) --- */
+.trade-panel {
+    background: rgba(0, 10, 20, 0.4); 
+    border: 1px solid rgba(0, 242, 255, 0.5);
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 0 30px rgba(0, 242, 255, 0.15);
+}
+.trade-panel:hover {
+    background: rgba(0, 10, 20, 0.5);
+    border-color: #00f2ff;
+}
+
+/* --- RECHTE SEITE (Rot) --- */
+.pushing-panel {
+    background: rgba(20, 5, 5, 0.45); 
+    border: 1px solid rgba(255, 77, 77, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 0 30px rgba(255, 77, 77, 0.15);
+}
+.pushing-panel:hover {
+    background: rgba(30, 5, 5, 0.55);
+    border-color: #ff4d4d;
+}
+
+/* --- TYPO & INPUTS --- */
+h3 {
+    margin: 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+    letter-spacing: 2px;
+}
+.trade-panel h3 { color: #00f2ff; text-shadow: 0 0 10px rgba(0, 242, 255, 0.5); }
+.pushing-panel h3 { color: #ff4d4d; text-shadow: 0 0 10px rgba(255, 77, 77, 0.5); }
+
+/* Inputs füllen jetzt die Breite */
+.handelsrechner-container input, 
+.handelsrechner-container select {
+    background: rgba(0, 0, 0, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #fff !important;
+    padding: 12px; /* Größere Klickfläche */
+    width: 100%;   /* Nutze den Platz! */
+    box-sizing: border-box; 
+    font-size: 1rem;
+}
+
+.handelsrechner-container input:focus, 
+.handelsrechner-container select:focus {
+    background: rgba(0, 0, 0, 0.7) !important;
+    border-color: #fff !important;
+    outline: none;
+}
+
+/* Spezialfall: Input Gruppen */
+.input-group, .player-input-group { width: 100%; }
+.resource-select-group { display: flex; gap: 10px; }
+
+/* Prozent Bereich */
+.percentage-inputs {
+    background: rgba(0,0,0,0.2);
+    padding: 10px;
+    border-radius: 8px;
+    flex-grow: 1; 
+}
+.percent-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.percent-row input { width: 80px !important; text-align: right; }
+
+/* Ergebnisse */
+.trade-result-box, .pushing-result-box {
+    margin-top: auto;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+.trade-result-box { border: 1px solid #00f2ff; background: rgba(0, 242, 255, 0.05); }
+.pushing-result-box.ok { border: 2px solid #39ff14; color: #39ff14; background: rgba(57, 255, 20, 0.1); }
+.pushing-result-box.forbidden { border: 2px solid #ff3333; color: #ff3333; background: rgba(255, 51, 51, 0.1); }
+
+.trade-arrow { font-size: 2rem; text-align: center; color: #00f2ff; margin: -5px 0; }

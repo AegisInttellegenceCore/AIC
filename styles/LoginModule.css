@@ -1,0 +1,26 @@
+.aegis-container.bg-economy-mode { background: none; }
+.aegis-container.bg-economy-mode::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;
+  background-image: url('./assets/economy_bg.png');
+  background-size: cover; background-position: center;
+}
+
+.aegis-container.bg-economy-mode::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;
+  background: linear-gradient(90deg, transparent 50%, rgba(0, 242, 255, 0.03) 100%);
+  background-size: 4px 4px;
+  pointer-events: none;
+}
+
+.eco-glass-panel {
+  background: rgba(0, 5, 10, 0.2) !important;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(0, 242, 255, 0.3) !important;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  border-radius: 4px;
+  color: #fff;
+}

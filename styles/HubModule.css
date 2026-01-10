@@ -1,0 +1,76 @@
+.aegis-container.bg-hub-mode {
+  background: none;
+  justify-content: flex-end;
+  padding-bottom: 40px;
+}
+
+/* FIX: Hier lag das Schwarz begraben */
+.prod-panel-wide {
+  max-width: 1000px;
+  /* Geändert von 0.98 auf transparent */
+  background: transparent !important; 
+  margin-top: 20px;
+  margin-bottom: 20px;
+  transition: background 0.5s ease;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.hub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Passend zum Glas-Look: subtilerer Rand */
+  border-bottom: 1px solid rgba(0, 242, 255, 0.2);
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.hub-nav button {
+  background: transparent;
+  border: none;
+  color: #666;
+  margin-left: 15px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.hub-nav button.active-nav {
+  color: var(--neon-blue);
+  text-shadow: 0 0 8px var(--neon-blue);
+}
+
+/* Fix für die fehlerhafte Verschachtelung in deinem Post */
+.main-input {
+  width: 100%;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 242, 255, 0.2) !important;
+  color: var(--neon-blue);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.action-btn {
+  background: rgba(0, 242, 255, 0.05);
+  border: 1px solid var(--neon-blue);
+  color: var(--neon-blue);
+  padding: 12px 20px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  background: var(--neon-blue);
+  color: #000;
+  box-shadow: 0 0 20px var(--neon-blue);
+}

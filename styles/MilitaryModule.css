@@ -1,0 +1,95 @@
+/* MilitaryModule.css */
+
+/* --- MILITÄR (Basis) --- */
+.aegis-container.bg-military-mode {
+  background: none !important;
+  justify-content: center;
+}
+
+.aegis-container.bg-military-mode::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;
+  /* Pfad angepasst: springt aus /styles/ hoch zu /public/assets/ */
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url('/assets/military_bg.png'); 
+  background-size: cover; background-position: center; background-attachment: fixed;
+}
+
+/* --- ABFANGRECHNER (Taktik) --- */
+.aegis-container.bg-interception-mode {
+  background: none !important;
+  justify-content: center;
+}
+
+.aegis-container.bg-interception-mode::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)), url('/assets/interception_bg.png'); 
+  background-size: cover; background-position: center; background-attachment: fixed;
+}
+
+/* --- SAVE-ABFANG (Threat Analyzer) --- */
+.aegis-container.bg-analyzer-mode {
+  background: none !important;
+  justify-content: center;
+}
+
+.aegis-container.bg-analyzer-mode::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('/assets/analyzer_bg.png'); 
+  background-size: cover; background-position: center; background-attachment: fixed;
+}
+
+/* Spezielle Transparenz für Militär-Panels */
+.prod-panel-wide.glass-panel-transparent {
+  background: rgba(0, 0, 0, 0.2) !important; 
+  backdrop-filter: blur(3px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+  margin-top: 0;
+}
+
+/* NEU: Scrollbar Logik für das Interface */
+.military-interface {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  align-items: flex-start;
+  max-height: 85vh; /* Verhindert das Herausrutschen aus dem Screen */
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--neon-blue) transparent;
+}
+
+.military-interface::-webkit-scrollbar {
+  width: 6px;
+}
+
+.military-interface::-webkit-scrollbar-thumb {
+  background: var(--neon-blue);
+  border-radius: 3px;
+}
+
+/* Styling für die Schiffs-Tabelle */
+.ship-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ship-row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ship-row:hover {
+  background: rgba(0, 242, 255, 0.03);
+}
+
+.possible-val {
+  text-align: right;
+  padding-right: 15px;
+  font-weight: bold;
+}
